@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title></title>
+</head>
+<body>
+
+<div class="row justify-content-center">
+    <a class="alink" href="/admin/delete-book">Back</a>
+    <a class="alink" href="/">Home</a>
+    <a class="alink" href="/help">Help</a>
+</div>
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+        {% with messages = get_flashed_messages(category_filter=["Error"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% with messages = get_flashed_messages(category_filter=["Info"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+<form action="/admin/delete-book-action" method="POST">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+            <div id="accordion" class="myaccordion">
+                {% if not matched_books %}
+                <div class="row justify-content-center">
+                    <p>No books found!</p>
+                </div>
+
+                {% endif %}
+                {% for book in matched_books %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button type="submit" name="delete-btn" value="{{ book[0] }}"
+                                    class="d-flex align-items-center justify-content-between btn btn-link">
+                                {{ book[1] }} by {{ book[2] }}
+                                <span class="fa-stack fa-sm">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+      </span>
+                            </button>
+                        </h2>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/customs.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+</body>
+</html>

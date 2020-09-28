@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row justify-content-center">
+          <a class="alink" href="/">Back</a>
+          <a class="alink" href="/admin/add-book">Add book</a>
+          <a class="alink" href="/admin/update-book">Update book</a>
+          <a class="alink" href="/admin/delete-book">Delete book</a>
+          <a class="alink" href="/help">Help</a>
+      </div>
+      <br>
+    </div>
+
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/customs.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+  </body>
+</html>

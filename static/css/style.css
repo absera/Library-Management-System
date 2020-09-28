@@ -1,0 +1,110 @@
+body, html, *{
+  padding:0;
+  margin:0;
+}
+
+input.form-control,
+input.form-control:focus,
+select.form-control,
+select.form-control:focus {
+    border:2px solid purple;
+    box-shadow: none;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   -moz-transition: none;
+   -webkit-transition: none;
+}
+/**/
+a.alink:link, a:visited {
+  background-color: transparent;
+  border: 2px solid purple;
+  color: purple;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 10px;
+}
+
+a.alink:hover, a:active {
+  background-color: purple;
+  color:white;
+}
+.btn-purple{
+  color:white;
+  background-color:purple;
+  border-radius:50px;
+  padding: 5px, 25px;
+}
+.btn-purple:hover{
+  color:white;
+}
+/**/
+
+.input-group>.input-group-append>.btn,
+.input-group>.input-group-append>.input-group-text,
+.input-group>.input-group-prepend>.btn,
+.input-group>.input-group-prepend>.input-group-text {
+  border:2px solid purple;
+  background-color: purple;
+  color: white;
+}
+
+.myaccordion {
+  /*max-width: 500px;*/
+  margin: 50px auto;
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+ 
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+  border: none;
+}
+ 
+.myaccordion .card-header {
+  border-bottom-color: #EDEFF0;
+  background: transparent;
+}
+ 
+.myaccordion .fa-stack {
+  font-size: 18px;
+}
+ 
+.myaccordion .btn {
+  width: 100%;
+  font-weight: bold;
+  color: purple;
+  padding: 0;
+}
+ 
+.myaccordion .btn-link:hover,
+.myaccordion .btn-link:focus {
+  text-decoration: none;
+}
+ 
+.myaccordion li + li {
+  margin-top: 10px;
+}
+
+::placeholder { 
+  color: purple;
+  opacity: 1; 
+}
+
+:-ms-input-placeholder {
+  color: purple;
+}
+
+::-ms-input-placeholder {
+  color: purple;
+}
+
+
+@media screen and (min-width: 480px) {
+  a.alink:link, a:visited {
+  font-size: 15px;
+}
+
+}

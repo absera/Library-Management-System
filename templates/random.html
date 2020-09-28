@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <br>
+      <div class="row justify-content-center">
+          <a class="alink" href="/">Home</a>&nbsp
+          <a class="alink" href="/help">Help</a>
+      </div>
+      <br>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4">
+          <form action="/random" method="POST" style="width:100%;">
+                <select class="form-control" name="select" id="select">
+                        <option value="Academic">Select Book Type</option>
+                        {% for category in all_book_categories%}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                </select>
+                <br>
+                <button class="btn btn-block btn-purple">
+                    Generate Random Book
+                </button>
+            </form>
+          </div>
+
+
+        </div>
+      <div class="row justify-content-center">
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+        <div id="accordion" class="myaccordion" style="width:100%;">
+          {% for book in random_books %}
+  <div class="card">
+    <div class="card-header" id="headingOne">
+  <h2 class="mb-0">
+    <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#book" aria-expanded="false" aria-controls="collapseOne">
+      {{ book[1] }} by {{ book[2] }}
+      <span class="fa-stack fa-sm">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+      </span>
+    </button>
+  </h2>
+</div>
+<div id="book" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+  <div class="card-body">
+     <table class="table table-hover table-dark" style="width: 100%;height: 100%;">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Book ID</th>
+      <td>{{ book[0] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Book Name</th>
+      <td>{{ book[1] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Book Author</th>
+      <td colspan="2">{{ book[2] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Book Type</th>
+      <td>{{ book[3] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Edition Year</th>
+      <td>{{ book[4] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Shelf Number</th>
+      <td colspan="2">{{ book[5] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Row Number</th>
+      <td>{{ book[6] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Amount</th>
+      <td colspan="2">{{ book[7] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+  </div>
+  {% endfor %}
+</div>
+</div>
+      </div>
+    </div>
+
+
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/customs.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+  </body>
+</html>

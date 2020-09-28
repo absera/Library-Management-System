@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title></title>
+  </head>
+  <body>
+
+  <div class="container">
+      <br>
+      <div class="row justify-content-center">
+          <a class="alink" href="/">Home</a>&nbsp
+      </div>
+      <br>
+      <div class="row justify-content-center">
+          <h1>WELCOME!</h1>
+      </div>
+      <div class="row justify-content-center">
+          <p>This is where you get help on how to use this application!</p>
+      </div>
+
+      <div class="row justify-content-center">
+          <p>This application helps you to:</p>
+      </div>
+
+      <div class="row justify-content-center">
+          <ul>
+          <li>Search and find any books and their information</li>
+          <li>Generate a random book with custom book type</li>
+          <li>Add new books with their full information to the database</li>
+          <li>Update existing books</li>
+          <li>Delete existing books</li>
+      </ul>
+      </div>
+
+      <br><br>
+          <h6 id="search">1. Search and find books</h6>
+          <p>This feature helps you to find any book in this library if it was added to the database. (see #3 on how to add new book).
+          to search for a book, go to <a href="/"> this </a>page. you can search a book by its name, author or book type. when you enter your search text on the input field and click the search icon button or enter, your search results will be displayed there.
+          To see book information, click on any book that is shown there. click again to hide the information.
+          </p>
+          <h6 id="random">2. Generate random book</h6>
+          <p>This is where you can generate new random book from the database with custom book type.
+          To generate new random book, go to <a href="/random">this</a> and choose book type. then click on the 'generate random book' button.
+          </p>
+      <h6 id="add">3. Add new book</h6>
+      <p>If you want to add new book to this application, go to <a href="/admin/add-book">this</a> and fill all needed information responsibly then click on 'submit' button. after you clicked the submit button, the information you just entered will be accessible for any user.</p>
+    <h6>4. Update existing books</h6>
+      <p>If you think the information of a book is outdated and needs to be updated, you can do this <a href="/admin/update-book">here</a>. you can edit some part of the information or the whole part.
+      to update a book go to <a href="/admin/update-book">this</a> page and search for the book you want to update. then select the book from search results. fill all needed information and click submit</p>
+
+      <h6>4. Delete a book</h6>
+      <p>If you think a book is no more useful in the database or if it doesnt exist anymore in the library, you can remove it from the database (PLEASE BE CAREFUL WHEN DELETING BOOKS! THIS ACTION CAN NOT BE UNDO!)</p>
+      <br><br><br>
+      <h4>Thank you for using this application! <a href="/about">click here for info about the developer.</a> </h4>
+      <br><br><br>
+  </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/customs.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-styles.css') }}">
+    <title>Add new book here!</title>
+</head>
+<body>
+<div class="container">
+    <br>
+    <div class="row justify-content-center">
+        <a class="alink" href="/admin/update-book">Back</a>&nbsp
+        <a class="alink" href="/">Home</a>&nbsp
+        <a class="alink" href="/help">Help</a>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+            {% with messages = get_flashed_messages(category_filter=["Error"]) %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% with messages = get_flashed_messages(category_filter=["Info"]) %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            {% for book in selected_book %}
+            <form action="/admin/update-book-actions_done" class="form-horizontal" role="form" method="POST">
+                <div class="form-group">
+                    <label for="id">Book ID</label>
+                    <input type="text" name="book-id" class="form-control" value="{{ book[0] }}" id="id" readonly="true">
+                    <label for="name">Book Name</label>
+                    <input type="text" name="book-name" class="form-control" value="{{ book[1] }}" id="name">
+                    <label for="author">Book Author</label>
+                    <input type="text" name="book-author" class="form-control" value="{{  book[2] }}" id="author">
+                    <label for="type">Book type</label>
+                    <input type="text" name="book-type" class="form-control" value="{{ book[3] }}" id="type">
+                    <label for="year">Edition Year</label>
+                    <input type="text" name="edition-year" class="form-control" value="{{ book[4] }}" id="year">
+                    <label for="shelf">Shelf Number</label>
+                    <input type="text" name="shelf-number" class="form-control" value="{{ book[5] }}" id="shelf">
+                    <label for="row">Row Number</label>
+                    <input type="text" name="row-number" class="form-control" value="{{ book[6] }}" id="row">
+                    <label for="amount">Amount</label>
+                    <input type="text" name="amount" class="form-control" value="{{ book[7] }}" id="amount">
+                    <button type="submit" class="btn btn-purple btn-block">Submit</button>
+                </div>
+
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/customs.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+</body>
+</html>
